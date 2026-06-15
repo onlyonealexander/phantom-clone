@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phantom – Import Wallet</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .option-btn {
+      width: 100%;
+      background: #1c1c1c;
+      border: none;
+      border-radius: 50px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      margin-bottom: 14px;
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+    .option-btn:hover { background: #2a2a2a; }
+    .option-btn span { color: #fff; font-size: 16px; font-weight: 500; }
+    .opt-icon { color: #fff; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+<div class="phone">
+  <div class="topbar">
+    
+    <div></div>
+  </div>
+
+  <a href="index.html" class="icon-btn" style="margin-bottom:20px; width:36px; height:36px;">‹</a>
+
+  <svg width="110" height="90" viewBox="0 0 110 90" style="margin-top:16px; margin-bottom:8px;">
+    <rect x="10" y="28" width="80" height="52" rx="8" fill="#222"/>
+    <rect x="16" y="34" width="80" height="52" rx="8" fill="#5b4fcf"/>
+    <rect x="22" y="40" width="80" height="52" rx="8" fill="#3ecf8e"/>
+    <rect x="28" y="36" width="68" height="8" rx="3" fill="rgba(255,255,255,0.15)"/>
+    <text x="8" y="20" font-size="16" fill="#facc15">✦</text>
+    <text x="88" y="72" font-size="14" fill="#facc15">✦</text>
+    <text x="50" y="14" font-size="12" fill="#facc15">+</text>
+  </svg>
+
+  <h1 class="page-title">Import wallet</h1>
+  <p class="page-sub">Connect an existing crypto wallet</p>
+
+  <a href="recovery-phrase.html" class="option-btn">
+    <svg class="opt-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2"/>
+      <line x1="9" y1="7" x2="15" y2="7"/>
+      <line x1="9" y1="11" x2="15" y2="11"/>
+      <line x1="9" y1="15" x2="12" y2="15"/>
+    </svg>
+    <span>Use Recovery Phrase</span>
+  </a>
+
+  <a href="private-key.html" class="option-btn">
+    <svg class="opt-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="15" r="4"/>
+      <path d="M12 15h8M17 15v-2"/>
+    </svg>
+    <span>Use Private Key</span>
+  </a>
+
+  <a href="phantom-site.html" class="option-btn">
+    <svg class="opt-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2"/>
+      <path d="M3 9h6M3 15h6M9 3v18"/>
+    </svg>
+    <span>Connect Ledger Wallet</span>
+  </a>
+</div>
+<script src="../js/utils.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phantom – Recovery Phrase</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .nav-row {
+      display: flex; justify-content: space-between;
+      align-items: center; margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+<div class="phone">
+  <div class="topbar">
+    
+    <div></div>
+  </div>
+
+  <div class="nav-row">
+    <a href="import-wallet.html" class="icon-btn">‹</a>
+    <div class="step-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <button class="icon-btn">?</button>
+  </div>
+
+  <svg width="90" height="75" viewBox="0 0 90 75" style="margin-top:10px;">
+    <ellipse cx="38" cy="42" rx="22" ry="16" fill="#5b4fcf"/>
+    <rect x="52" y="28" width="30" height="12" rx="6" fill="#a78bfa" transform="rotate(-30 52 28)"/>
+    <circle cx="28" cy="46" r="7" fill="#3d3080"/>
+    <circle cx="28" cy="46" r="3" fill="#0a0a0a"/>
+    <text x="60" y="20" font-size="13" fill="#facc15">✦</text>
+    <text x="14" y="28" font-size="11" fill="#facc15">✦</text>
+  </svg>
+
+  <h1 class="page-title">Enter your recovery<br>phrase</h1>
+  <p class="page-sub">Restore your wallet with the 12 or 24-word recovery phrase</p>
+
+  <div class="field-box">
+    <textarea id="phrase-input" placeholder="Recovery phrase" rows="3"></textarea>
+    <button class="paste-btn" onclick="document.getElementById('phrase-input').focus()">Paste</button>
+  </div>
+
+  <div class="toast" id="toast">Wallet imported successfully!</div>
+
+  <button class="btn btn-dark-purple" onclick="handleImport()" style="margin-bottom:16px;">Import</button>
+
+
+</div>
+
+<script src="../js/utils.js"></script>
+<script>
+function handleImport() {
+  const phrase = document.getElementById('phrase-input').value.trim();
+  if (!phrase) { alert('Please enter your recovery phrase first.'); return; }
+  showToastAndRedirect('toast', 'index.html');
+}
+</script>
+</body>
+</html>
