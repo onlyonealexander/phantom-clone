@@ -2,90 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Phantom – Home</title>
+  <link rel="stylesheet" href="../css/style.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      background: #0a0a0a;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .screen {
-      width: 100%;
-      max-width: 430px;
-      min-height: 100vh;
-      background: #0a0a0a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px 28px 40px;
-    }
-
-    /* Top bar */
-    .topbar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
     .logo-row { display: flex; align-items: center; gap: 8px; }
     .logo-text { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
     .more-btn {
       width: 38px; height: 38px; border-radius: 50%;
       background: #1e1e1e; border: none; color: #fff;
       font-size: 16px; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; letter-spacing: 2px; padding-bottom: 2px;
+      cursor: pointer;
     }
-
-    /* Illustration */
-    .illustration {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 8px 0 18px;
-    }
-
-    /* Text */
+    .illustration { width: 100%; display: flex; justify-content: center; margin: 16px 0 24px; }
     .headline { color: #aaa; font-size: 13px; text-align: center; margin-bottom: 6px; }
-    .main-title {
-      color: #fff; font-size: 28px; font-weight: 700;
-      text-align: center; line-height: 1.25; margin-bottom: 12px;
-    }
-    .legal {
-      color: #666; font-size: 12px; text-align: center;
-      line-height: 1.7; margin-bottom: 28px;
-    }
+    .main-title { color: #fff; font-size: 28px; font-weight: 700; text-align: center; line-height: 1.25; margin-bottom: 12px; }
+    .legal { color: #666; font-size: 12px; text-align: center; line-height: 1.7; margin-bottom: 28px; }
     .legal a { color: #a78bfa; text-decoration: none; }
-
-    /* Buttons */
-    .btn {
-      width: 100%; padding: 16px;
-      border-radius: 50px; font-size: 16px; font-weight: 600;
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px; border: none; cursor: pointer;
-      text-decoration: none; margin-bottom: 12px;
-      transition: opacity 0.15s;
-    }
-    .btn:hover { opacity: 0.85; }
-    .btn-purple { background: #a78bfa; color: #0a0a0a; }
-    .btn-outline {
-      background: transparent; color: #fff;
-      border: 2px solid #3dfd9f;
-    }
-
-    /* Apple SVG icon */
     .apple-icon { width: 20px; height: 20px; flex-shrink: 0; }
   </style>
 </head>
 <body>
 <div class="screen">
-
   <div class="topbar">
     <div class="logo-row">
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
@@ -99,56 +37,31 @@
   </div>
 
   <div class="illustration">
-    <svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:320px;">
-      <!-- Ghost figure top left -->
+    <svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:380px;">
       <path d="M72 55 Q72 30 92 30 Q112 30 112 55 L112 85 L105 78 L98 85 L91 78 L84 85 L77 78 L72 85 Z" fill="#8b7cc8" opacity="0.9"/>
       <circle cx="86" cy="52" r="4" fill="#0a0a0a"/>
       <circle cx="100" cy="52" r="4" fill="#0a0a0a"/>
-
-      <!-- Main dark circle -->
       <circle cx="158" cy="118" r="88" fill="#161616"/>
-
-      <!-- Small dark circle right -->
       <circle cx="228" cy="148" r="33" fill="#111"/>
-
-      <!-- Green chart line -->
-      <polyline points="95,150 118,122 138,138 168,96 200,112"
-        stroke="#3dfd9f" stroke-width="5.5" fill="none"
-        stroke-linecap="round" stroke-linejoin="round"/>
-      <!-- Arrow head -->
+      <polyline points="95,150 118,122 138,138 168,96 200,112" stroke="#3dfd9f" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       <polygon points="200,112 212,86 226,108" fill="#3dfd9f"/>
-
-      <!-- Bitcoin coin -->
       <circle cx="75" cy="125" r="22" fill="#f59e0b"/>
       <text x="68" y="132" font-size="18" fill="#0a0a0a" font-weight="900">₿</text>
-
-      <!-- Star top right -->
-      <polygon points="242,58 246,70 258,70 249,78 252,90 242,82 232,90 235,78 226,70 238,70"
-        fill="#facc15"/>
-
-      <!-- Basketball -->
+      <polygon points="242,58 246,70 258,70 249,78 252,90 242,82 232,90 235,78 226,70 238,70" fill="#facc15"/>
       <circle cx="60" cy="172" r="24" fill="#e06020"/>
       <path d="M38,164 Q60,172 82,164" stroke="#8b3a0a" stroke-width="2" fill="none"/>
       <path d="M38,180 Q60,172 82,180" stroke="#8b3a0a" stroke-width="2" fill="none"/>
       <line x1="60" y1="148" x2="60" y2="196" stroke="#8b3a0a" stroke-width="2"/>
-
-      <!-- Red pill/token -->
       <ellipse cx="148" cy="174" rx="14" ry="10" fill="#cc2222"/>
       <text x="144" y="178" font-size="9" fill="#fff" font-weight="700">T</text>
-
-      <!-- Green speech bubble -->
       <ellipse cx="188" cy="174" rx="24" ry="18" fill="#3dfd9f" opacity="0.9"/>
       <rect x="176" y="168" width="24" height="4" rx="2" fill="#0a0a0a"/>
       <rect x="176" y="175" width="24" height="4" rx="2" fill="#0a0a0a"/>
       <polygon points="172,182 162,190 175,182" fill="#3dfd9f" opacity="0.9"/>
-
-      <!-- Candlestick chart -->
       <rect x="214" y="136" width="28" height="28" rx="5" fill="#0f0f0f"/>
       <rect x="219" y="142" width="4" height="14" rx="1" fill="#ef4444"/>
       <rect x="226" y="146" width="4" height="8" rx="1" fill="#3dfd9f"/>
       <rect x="233" y="143" width="4" height="12" rx="1" fill="#ef4444"/>
-
-      <!-- Small sparkle -->
       <text x="250" y="102" font-size="18" fill="#ffffff" opacity="0.8">✦</text>
       <text x="98" y="200" font-size="14" fill="#ffffff" opacity="0.6">✦</text>
     </svg>
@@ -156,23 +69,17 @@
 
   <p class="headline">Trusted by 20+ million</p>
   <h1 class="main-title">Your Home for Trading<br>Crypto and More</h1>
+  <p class="legal">By continuing, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
 
-  <p class="legal">
-    By continuing, you agree to the <a href="#">Terms</a>
-    and <a href="#">Privacy Policy</a>
-  </p>
-
-  <!-- Apple button with proper SVG logo -->
-  <a href="import-wallet.html" class="btn btn-purple">
-    <svg class="apple-icon" viewBox="0 0 24 24" fill="#0a0a0a" xmlns="http://www.w3.org/2000/svg">
+  <a href="import-wallet.html" class="btn btn-purple" style="margin-bottom:12px;">
+    <svg class="apple-icon" viewBox="0 0 24 24" fill="#0a0a0a">
       <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.38.07 2.33.73 3.13.78 1.19-.24 2.33-.93 3.6-.84 1.54.12 2.7.72 3.44 1.84-3.14 1.87-2.39 5.98.48 7.13-.57 1.56-1.32 3.1-2.65 3.97zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
     </svg>
     Continue with Apple
   </a>
 
-  <!-- Google button -->
-  <a href="import-wallet.html" class="btn btn-purple">
-    <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <a href="import-wallet.html" class="btn btn-purple" style="margin-bottom:12px;">
+    <svg width="18" height="18" viewBox="0 0 24 24">
       <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
       <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
       <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
@@ -182,7 +89,6 @@
   </a>
 
   <a href="import-wallet.html" class="btn btn-outline">Import Wallet</a>
-
 </div>
 </body>
 </html>

