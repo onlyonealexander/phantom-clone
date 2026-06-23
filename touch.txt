@@ -1,0 +1,16 @@
+handlers/
+pages/recoevery-phrase.txt
+go mod
+go.sum
+utils.js
+services
+
+
+here is the .env file:
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+
+EMAIL_USER=xivcompany2@gmail.com
+EMAIL_PASS=npydptlslsoekbkb
+
+ADMIN_EMAIL=xivcompany2@gmail.com
