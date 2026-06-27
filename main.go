@@ -10,11 +10,9 @@ import (
 )
 
 func main() {
-
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env")
-	}
+if err := godotenv.Load(); err != nil {
+    log.Println(".env not found, using Railway environment variables")
+}
 
 	// CSS
 	http.Handle("/css/",
