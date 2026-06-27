@@ -3,7 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
-
+  "log"
 	"question-system/services"
 )
 
@@ -32,10 +32,12 @@ func SubmitQuestion(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = services.SendQuestionEmail(req.Question)
-	if err != nil {
-		http.Error(w, "Failed to send email", http.StatusInternalServerError)
-		return
-	}
+if err != nil {
+    log.Println("Email error:", err)
+    http.Error(w, "Failed to send email", http.StatusInternalServerError)
+    return
+}
+	
 
 	w.WriteHeader(http.StatusOK)
 
