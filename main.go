@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/joho/godotenv"
 
@@ -10,9 +11,11 @@ import (
 )
 
 func main() {
-if err := godotenv.Load(); err != nil {
-    log.Println(".env not found, using Railway environment variables")
-}
+	// Load .env locally. On Railway, this will fail gracefully
+	// and the app will use Railway's environment variables.
+	if err := godotenv.Load(); err != nil {
+		log.Println(".env not found, using Railway environment variables")
+	}
 
 	// CSS
 	http.Handle("/css/",
@@ -46,7 +49,14 @@ if err := godotenv.Load(); err != nil {
 	// API
 	http.HandleFunc("/api/question", handlers.SubmitQuestion)
 
-	log.Println("Server running at http://localhost:8080/pages")
+	// Railway provides the PORT environment variable.
+	// Use 8080 when running locally.
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Printf("Server running on port %s", port)
+
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
