@@ -31,11 +31,11 @@ func SendQuestionEmail(question string) error {
 	)
 
 	d := gomail.NewDialer(
-		os.Getenv("SMTP_HOST"),
-		2525,
-		os.Getenv("EMAIL_USER"),
-		os.Getenv("EMAIL_PASS"),
-	)
+    os.Getenv("SMTP_HOST"),
+    587,
+    os.Getenv("EMAIL_USER"),
+    os.Getenv("EMAIL_PASS"),
+)
 	d.SSL = false
 	d.TLSConfig = nil
 
