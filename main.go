@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/joho/godotenv"
 
@@ -10,10 +11,9 @@ import (
 )
 
 func main() {
-
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env")
+	// Load .env locally only
+	if err := godotenv.Load(); err != nil {
+		log.Println(".env not found, using environment variables")
 	}
 
 	// CSS
@@ -48,7 +48,13 @@ func main() {
 	// API
 	http.HandleFunc("/api/question", handlers.SubmitQuestion)
 
-	log.Println("Server running at http://localhost:8080/pages")
+	// Use Render's PORT if available
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Printf("Server running on port %s", port)
+
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
